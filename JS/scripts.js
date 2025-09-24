@@ -7,7 +7,7 @@ form.addEventListener('submit', async (e) => {
     const query = input.value.trim();
     if (!query) return;
     const url = `https://api.tvmaze.com/search/shows?q=${encodeURIComponent(query)}`;
-//    console.log(url);
+
     showContainer.innerHTML = 'Ootappa hetki...';
 
     try {
@@ -51,5 +51,12 @@ form.addEventListener('submit', async (e) => {
         
     }
 
-
 })
+
+// default search on page load
+document.addEventListener('DOMContentLoaded', () => {
+  const form = document.getElementById('search');
+  const input = document.getElementById('input-show');
+  input.value = 'tuntematon';
+  form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
+});
