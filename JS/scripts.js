@@ -17,11 +17,7 @@ form.addEventListener('submit', async (e) => {
         showContainer.innerHTML = '';
         populateShows(data);
     } catch (error) {
-        showContainer.innerHTML = '';
-        const fallback = document.createElement('div');
-        fallback.className = 'show-data';
-        fallback.textContent = 'Error fetching data.';
-        showContainer.appendChild(fallback);
+        showContainer.innerHTML = 'Error fetching data.';
         console.error(error);
     }
     
@@ -42,7 +38,7 @@ form.addEventListener('submit', async (e) => {
             const title = document.createElement('h1');
             title.textContent = show?.name ?? 'No title available';
             const summary = document.createElement('div');
-            summary.innerHTML = DOMPurify.sanitize(show?.summary || 'No summary available.');
+            summary.innerHTML = show?.summary || 'No summary available.';
             info.appendChild(title);
             info.appendChild(summary);
             showDiv.appendChild(img);
@@ -56,9 +52,9 @@ form.addEventListener('submit', async (e) => {
 })
 
 // default search on page load
-document.addEventListener('DOMContentLoaded', () => {
+/* document.addEventListener('DOMContentLoaded', () => {
   const form = document.getElementById('search');
   const input = document.getElementById('input-show');
   input.value = 'tuntematon';
   form.dispatchEvent(new Event('submit', { bubbles: true, cancelable: true }));
-});
+}); */
