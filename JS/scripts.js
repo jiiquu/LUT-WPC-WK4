@@ -25,9 +25,8 @@ form.addEventListener('submit', async (e) => {
         if (shows.length === 0) {
             showContainer.innerHTML = 'No shows found.';
             return;
-        } else {
-            console.log = 'Found ' + shows.length + ' shows.';
-        }
+        };
+        
         shows.forEach(item => {
             const show = item.show;
             const showDiv = document.createElement('div');
