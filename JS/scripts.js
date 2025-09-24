@@ -1,6 +1,6 @@
 const form = document.getElementById('search');
 const input = document.getElementById('input-show');
-const showContainer = document.getElementById('show-container');
+const showContainer = document.querySelector('.show-container');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
@@ -8,7 +8,7 @@ form.addEventListener('submit', async (e) => {
     if (!query) return;
     const url = `https://api.tvmaze.com/search/shows?q=${encodeURIComponent(query)}`;
 
-    showContainer.innerHTML = 'Ootappa hetki...';
+    showContainer.innerHTML = 'Hold on...';
 
     try {
         const response = await fetch(url);
@@ -17,7 +17,11 @@ form.addEventListener('submit', async (e) => {
         showContainer.innerHTML = '';
         populateShows(data);
     } catch (error) {
-        showContainer.innerHTML = 'Error fetching data.';
+        showContainer.innerHTML = '';
+        const fallback = document.createElement('div');
+        fallback.className = 'show-data';
+        fallback.textContent = 'Error fetching data.';
+        showContainer.appendChild(fallback);
         console.error(error);
     }
     
@@ -26,7 +30,6 @@ form.addEventListener('submit', async (e) => {
             showContainer.innerHTML = 'No shows found.';
             return;
         };
-        
         shows.forEach(item => {
             const show = item.show;
             const showDiv = document.createElement('div');
@@ -44,7 +47,6 @@ form.addEventListener('submit', async (e) => {
             info.appendChild(summary);
             showDiv.appendChild(img);
             showDiv.appendChild(info);
-            
             showContainer.appendChild(showDiv);
         }
         )
