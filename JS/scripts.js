@@ -6,7 +6,7 @@ form.addEventListener('submit', async (e) => {
     e.preventDefault();
     const q = input.value.trim();
 //    if (!q) return;
-    const url = 'https://api.tvmaze.com/search/shows?q=' + encodeURIComponent(q);
+    const url = 'https://api.tvmaze.com/search/shows?q=' + q;
     console.log('Fetching data from:', url);
     showContainer.innerHTML = 'Hold on...';
 
