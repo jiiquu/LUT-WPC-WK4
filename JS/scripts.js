@@ -4,9 +4,9 @@ const showContainer = document.querySelector('.show-container');
 
 form.addEventListener('submit', async (e) => {
     e.preventDefault();
-    const query = input.value.trim();
-    if (!query) return;
-    const url = 'https://api.tvmaze.com/search/shows?q=' + encodeURIComponent(query);
+    const q = input.value.trim();
+    if (!q) return;
+    const url = 'https://api.tvmaze.com/search/shows?q=' + encodeURIComponent(q);
     console.log('Fetching data from:', url);
     showContainer.innerHTML = 'Hold on...';
 
