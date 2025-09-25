@@ -1,4 +1,6 @@
-body { background-color: #eceff1; }
+body { background-color: #eceff1; 
+       font-family: Roboto; 
+       }
 .show-container {
     padding-left: 10px;
     padding-right: 10px;
@@ -23,3 +25,18 @@ body { background-color: #eceff1; }
     .show-info { padding: 10px; }
 }
     
+@media (max-width: 799px) {
+    .show-data img { margin: auto; }
+    .show-info p {
+        text-align: center;
+        padding: 10px;
+    }
+}
+.roboto-basic> {
+  font-family: "Roboto", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 900;
+  font-style: normal;
+  font-variation-settings:
+    "wdth" 100;
+}
