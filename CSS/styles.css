@@ -1,4 +1,10 @@
-html { font-family: Roboto; }
+html { font-family: Roboto, sans-serif; 
+       font-optical-sizing: auto;
+       font-weight: 100;
+       font-style: normal;
+       font-variation-settings:
+         "wdth" 100;
+       }
 body { background-color: #eceff1; 
        }
 
@@ -33,12 +39,4 @@ body { background-color: #eceff1;
         text-align: center;
         padding: 10px;
     }
-}
-.roboto-basic> {
-font-family: "Roboto", sans-serif;
-  font-optical-sizing: auto;
-  font-weight: 100;
-  font-style: normal;
-  font-variation-settings:
-    "wdth" 100;
 }
